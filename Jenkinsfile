@@ -13,7 +13,7 @@ pipeline {
             steps {
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'dockerhub-cred',
+                        credentialsId: 'dockerhub-credentials',
                         usernameVariable: 'DOCKERHUB_USER',
                         passwordVariable: 'DOCKERHUB_PASSWORD'
                     )
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'dockerhub-cred',
+                        credentialsId: 'dockerhub-credentials',
                         usernameVariable: 'DOCKERHUB_USER',
                         passwordVariable: 'DOCKERHUB_PASSWORD'
                     )
@@ -42,12 +42,12 @@ pipeline {
             steps {
                 withCredentials([
                     usernamePassword(
-                        credentialsId: 'dockerhub-cred',
+                        credentialsId: 'dockerhub-credentials',
                         usernameVariable: 'DOCKERHUB_USER',
                         passwordVariable: 'DOCKERHUB_PASSWORD'
                     ),
                     file(
-                        credentialsId: 'dockerhub-cred',
+                        credentialsId: 'kubeconfig-credentials',
                         variable: 'KUBECONFIG'
                     )
                 ]) {
@@ -62,7 +62,7 @@ pipeline {
             steps {
                 withCredentials([
                     file(
-                        credentialsId: 'dockerhub-cred',
+                        credentialsId: 'kubeconfig-credentials',
                         variable: 'KUBECONFIG'
                     )
                 ]) {
