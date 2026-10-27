@@ -62,7 +62,7 @@ pipeline {
             steps {
                 withCredentials([
                     file(
-                        credentialsId: 'kubeconfig-credentials',
+                        credentialsId: 'dockerhub-cred',
                         variable: 'KUBECONFIG'
                     )
                 ]) {
